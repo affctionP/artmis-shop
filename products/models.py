@@ -9,6 +9,7 @@ class Category(MPTTModel):
 
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
-
+    #TODO
+    # we can add a thumnail for each category
     def __str__(self):
         return self.name

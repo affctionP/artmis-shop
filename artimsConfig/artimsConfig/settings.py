@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #my apps
     'accounts.apps.AccountsConfig',
+    'mptt',
+    'products.apps.ProductsConfig',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +58,7 @@ AUTH_USER_MODEL = 'accounts.customeUser'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str (BASE_DIR.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,12 +77,7 @@ WSGI_APPLICATION = 'artimsConfig.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-"""DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

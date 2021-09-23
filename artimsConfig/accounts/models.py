@@ -26,6 +26,8 @@ class customeUser(AbstractBaseUser,PermissionsMixin):
     is_active = models.BooleanField(default=True,verbose_name="فعال هست")
     date_joined = models.DateTimeField(auto_now_add=True)
     role = models.ManyToManyField(role)
+    provice = models.CharField(max_length = 30,verbose_name="استان", default="تهران")
+    city = models.CharField(max_length=40,verbose_name="شهر",default="تهران")
 
     USERNAME_FIELD = 'phone_number'
     
@@ -34,4 +36,3 @@ class customeUser(AbstractBaseUser,PermissionsMixin):
 
     def __str__(self):
         return self.name
-
